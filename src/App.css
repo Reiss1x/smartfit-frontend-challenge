@@ -1,42 +1,58 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import 'normalize.css';
+@import './styles.css';
+
+body {
+  font-family: gotham;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.box{
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+hr {
+  border-top: 1px solid #f0f0f0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.header {
+  display: flex;
+  background-color: black;
+  width: 100%;
+  height: 90px;
+  align-items: center;
+  justify-content: center;
+}
+.smart-logo {
+  max-width: 100%;
+  height: 55%;
 }
 
-.card {
-  padding: 2em;
+.text-content {
+  box-sizing: border-box;
+  width: 80%;
+  padding-left: 300px;
+  padding-top: 50px;
 }
 
-.read-the-docs {
-  color: #888;
+.gray-thing{
+  height: 9px;
+  width:100px;
+  background-color: var(--dark-grey);
 }
+h1 {
+  margin: 0;
+  font-weight: bold;
+  color: var(--dark-grey);
+  font-size: 34px;
+}
+
+p {
+  color: var(--dark-grey);
+  font-weight: 500;
+}
+
+
+
+
