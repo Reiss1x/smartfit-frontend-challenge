@@ -1,8 +1,19 @@
 import './App.css'
 import Header from "./components/Header.jsx"
 import Form from './components/Form.jsx';
-import React, { useState } from 'react'
+import Info from './components/Info.jsx';
+import React, { useEffect, useState } from 'react'
 const App = () => {
+  const [cidades, setCidades] = useState([]);
+
+  
+
+  const handleSubmit = (data) => {
+    if (!data === 0){
+      data.map((obj) => obj.locations.schedules.hour )
+    }
+    setCidades(data);
+  }
 
   const [count, setCount] = useState(0);
 
@@ -18,7 +29,9 @@ const App = () => {
           O horário de funcionamento das nossas   unidades está seguindo os decretos de cada  município. Por isso, confira aqui se a sua   unidade está aberta e as medidas de   segurança que estamos seguindo.
         </p>
       </div>
-      <Form count={count}/>
+      <Form onSubmit={handleSubmit}/>
+      <Info/>
+      {/* {cidades.map(home => <div>{cidades.locations.title}</div>)} */}
     </div>
   ) 
 };

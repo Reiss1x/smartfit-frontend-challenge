@@ -69,7 +69,6 @@ span {
   background-color: transparent;
 }
 
-
 h2 {
   color: #909090;
   font-size: 24px;
@@ -126,12 +125,49 @@ h1 {
   color: var(--dark-grey);
   font-size: 34px;
 }
+h5{
+  margin: 0;
+  font-size: 15px;
+  text-align: center;
+  font-weight: 500;
+}
 
+h4 {
+  font-weight:900;
+  height: 10%;
+  flex: 1;
+  text-align: center;
+}
 p {
   color: var(--dark-grey);
   font-weight: 500;
 }
 
+.info-container {
+  width: 62.5%;
+  height: 200px;
+  margin-left: 300px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+.item-group {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+}
+.item1{
+  width:25%;
+}
+.item{
+  width:25%;
+}
+.items {
+  display: flex;
+  justify-content: space-between;
+}
 
 
 
