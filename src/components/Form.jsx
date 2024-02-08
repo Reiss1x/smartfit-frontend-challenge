@@ -16,8 +16,6 @@ export default function Form( {onSubmit} ) {
       console.log(data)
     })
   }, [])
-  
-  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,6 +32,12 @@ export default function Form( {onSubmit} ) {
     }
     onSubmit(checkbox);
   }
+
+  const filterUnits = (open, closed, unit) => {
+    if (open ){
+      
+    }
+  };
   
   const handleChange = (event) => {
     setCheckbox(event.target.value)

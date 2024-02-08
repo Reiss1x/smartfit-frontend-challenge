@@ -55,10 +55,6 @@ export default function Info() {
                 <h5> Parcial </h5>
                 <h5> Fechado </h5> 
             </div>
-            
-              
-              
-            
         </div>
     </div>  
   )

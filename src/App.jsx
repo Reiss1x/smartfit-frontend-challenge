@@ -5,9 +5,8 @@ import Info from './components/Info.jsx';
 import React, { useEffect, useState } from 'react'
 const App = () => {
   const [cidades, setCidades] = useState([]);
-
+  const [count, setCount] = useState(0);
   
-
   const handleSubmit = (data) => {
     if (!data === 0){
       data.map((obj) => obj.locations.schedules.hour )
@@ -15,12 +14,15 @@ const App = () => {
     setCidades(data);
   }
 
-  const [count, setCount] = useState(0);
+  
 
   return (
     <div >
-      <Header />
-      <div className='text-content'>
+      <div className='page-header'>
+        <Header />
+      </div>
+      <div className='page-body'>
+        <div className='text-content'>
         <h1>
         REABERTURA <br/>SMART FIT
         </h1>
@@ -31,8 +33,9 @@ const App = () => {
       </div>
       <Form onSubmit={handleSubmit}/>
       <Info/>
-      {/* {cidades.map(home => <div>{cidades.locations.title}</div>)} */}
     </div>
+  </div>
+      
   ) 
 };
 
