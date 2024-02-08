@@ -14,9 +14,9 @@ export default function Info() {
     <div className='info-container'>
         <div className='items'>
             <h4> Máscara </h4>
-            <h4> Máscara </h4>  
-            <h4> Máscara </h4> 
-            <h4> Máscara </h4>  
+            <h4> Toalha </h4>  
+            <h4> Bebedouro </h4> 
+            <h4> Vestiários </h4>  
         </div>
         <div className='items'>
             <div className='item-group'>
