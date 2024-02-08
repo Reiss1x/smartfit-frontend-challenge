@@ -8,13 +8,8 @@ const App = () => {
   const [count, setCount] = useState(0);
   
   const handleSubmit = (data) => {
-    if (!data === 0){
-      data.map((obj) => obj.locations.schedules.hour )
-    }
-    setCidades(data);
+    
   }
-
-  
 
   return (
     <div >

@@ -3,40 +3,63 @@ import IconHour from '../_material/images/icon-hour.png'
 
 export default function Form( {onSubmit} ) {
   const [data, setData] = useState();
-  const [closeBox, setCloseBox] = useState(true);
+  const [closeBox, setCloseBox] = useState(false);
   const [results, setResults] = useState(0);
-  const [checkbox, setCheckbox] = useState(0);
+  const [checkbox, setCheckbox] = useState(null);
 
   useEffect(() => {
     fetch("https://test-frontend-developer.s3.amazonaws.com/data/locations.json")
     .then(res => res.json())
     .then(data => {
       setData(data)
-      setResults(data.locations.length)
+      setResults(0)
       console.log(data)
     })
   }, [])
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let count=0;
+    let cities;
     if(!closeBox){
-      data.locations.forEach((obj) => {
-        if(obj.opened){
-          count++
-        }
-      })
-      setResults(count)
+      cities = data.locations.filter(filterUnits)
     } else {
-      setResults(data.locations.length)
+      cities = data.locations;
     }
+    setResults(cities.length)
     onSubmit(checkbox);
   }
 
-  const filterUnits = (open, closed, unit) => {
-    if (open ){
-      
+  const filterUnits = (unit) => {
+    let open, closed;
+    switch (checkbox) {
+      case 0:
+        return false;
+      case 1:
+        open = 6;
+        closed = 12;
+        break;
+      case 2:
+        open = 12;
+        closed = 18;
+        break;
+      case 3:
+        open = 18;
+        closed = 23;
+        break; 
     }
+
+    if (unit.opened){
+      let openHr = parseInt(open, 10)
+      let closeHr = parseInt(closed, 10)
+      let [unit_open, unit_close] = unit.schedule[0].hour.split(' ás ')
+      let unit_op_hour = parseInt(unit_open.replace("h", ''), 10)
+      let unit_close_hour = parseInt(unit_close.replace("h", ''), 10)
+
+      if (unit_op_hour <= openHr && unit_close_hour >= closeHr) return true
+      else return false
+    } else return false
+  
+
   };
   
   const handleChange = (event) => {
@@ -45,7 +68,7 @@ export default function Form( {onSubmit} ) {
 
   const handleBoxChange = () => {
     setCloseBox(!closeBox)
-    console.log(closeBox);
+    
   }
 
   return (
