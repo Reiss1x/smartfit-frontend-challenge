@@ -5,14 +5,13 @@ export default function Form( {onSubmit} ) {
   const [data, setData] = useState();
   const [closeBox, setCloseBox] = useState(false);
   const [results, setResults] = useState(0);
-  const [checkbox, setCheckbox] = useState(null);
+  const [checkbox, setCheckbox] = useState(0);
 
   useEffect(() => {
     fetch("https://test-frontend-developer.s3.amazonaws.com/data/locations.json")
     .then(res => res.json())
     .then(data => {
       setData(data)
-      setResults(0)
       console.log(data)
     })
   }, [])
@@ -20,13 +19,13 @@ export default function Form( {onSubmit} ) {
   const handleSubmit = (event) => {
     event.preventDefault();
     let cities;
-    if(!closeBox){
+    if(!closeBox && checkbox != 0){
       cities = data.locations.filter(filterUnits)
     } else {
       cities = data.locations;
     }
     setResults(cities.length)
-    onSubmit(checkbox);
+    onSubmit(cities);
   }
 
   const filterUnits = (unit) => {
@@ -44,26 +43,27 @@ export default function Form( {onSubmit} ) {
         break;
       case 3:
         open = 18;
-        closed = 23;
+        closed = 22; 
         break; 
     }
 
     if (unit.opened){
-      let openHr = parseInt(open, 10)
-      let closeHr = parseInt(closed, 10)
-      let [unit_open, unit_close] = unit.schedule[0].hour.split(' ás ')
+      const [unit_open, unit_close] = unit.schedules[0].hour.split(' às ')
       let unit_op_hour = parseInt(unit_open.replace("h", ''), 10)
       let unit_close_hour = parseInt(unit_close.replace("h", ''), 10)
 
-      if (unit_op_hour <= openHr && unit_close_hour >= closeHr) return true
-      else return false
+      if (unit_op_hour <= open && unit_close_hour >= closed){
+        return true;
+      } else {
+        return false;
+      }
     } else return false
   
 
   };
   
   const handleChange = (event) => {
-    setCheckbox(event.target.value)
+    setCheckbox(parseInt(event.target.value))
   };
 
   const handleBoxChange = () => {
@@ -81,15 +81,15 @@ export default function Form( {onSubmit} ) {
           </div>      
             <h2>Qual período quer treinar?</h2>
             <div className='buttons'>
-              <label > <input type="radio"  value='Manhã' checked={checkbox === 1} onChange={handleChange}/> Manhã </label>
+              <label > <input type="radio"  value={1} checked={checkbox === 1} onChange={handleChange}/> Manhã </label>
               <span> 06:00 às 12:00 </span>
             </div>
             <div className='buttons'>
-              <label > <input type="radio" value='Tarde' checked={checkbox === 2} onChange={handleChange}/> Tarde </label>
+              <label > <input type="radio" value={2} checked={checkbox === 2} onChange={handleChange}/> Tarde </label>
               <span> 12:01 às 18:00 </span>
             </div>
             <div className='buttons'>
-              <label > <input type="radio" value='Noite' checked={checkbox === 3} onChange={handleChange}/> Noite </label>
+              <label > <input type="radio" value={3} checked={checkbox === 3} onChange={handleChange}/> Noite </label>
               <span> 18:01 às 23:00 </span>
             </div>
               <div className='box-footer'>

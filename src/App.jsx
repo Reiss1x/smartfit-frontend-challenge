@@ -3,12 +3,13 @@ import Header from "./components/Header.jsx"
 import Form from './components/Form.jsx';
 import Info from './components/Info.jsx';
 import React, { useEffect, useState } from 'react'
+import Units from './components/Units.jsx';
 const App = () => {
   const [cidades, setCidades] = useState([]);
   const [count, setCount] = useState(0);
   
   const handleSubmit = (data) => {
-    
+    console.log("ALOOOOOO", data);
   }
 
   return (
@@ -28,6 +29,7 @@ const App = () => {
       </div>
       <Form onSubmit={handleSubmit}/>
       <Info/>
+      <Units/>
     </div>
   </div>
       
