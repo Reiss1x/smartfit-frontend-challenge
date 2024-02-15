@@ -9,7 +9,7 @@ const App = () => {
   const [count, setCount] = useState(0);
   
   const handleSubmit = (data) => {
-    console.log("ALOOOOOO", data);
+    console.log(data);
   }
 
   return (

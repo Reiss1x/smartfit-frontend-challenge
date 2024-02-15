@@ -26,6 +26,11 @@ export default function Form( {onSubmit} ) {
     }
     setResults(cities.length)
     onSubmit(cities);
+  };
+
+  const handleReset = () => {
+    onSubmit([])
+    setResults(0)
   }
 
   const filterUnits = (unit) => {
@@ -58,8 +63,6 @@ export default function Form( {onSubmit} ) {
         return false;
       }
     } else return false
-  
-
   };
   
   const handleChange = (event) => {
@@ -67,8 +70,7 @@ export default function Form( {onSubmit} ) {
   };
 
   const handleBoxChange = () => {
-    setCloseBox(!closeBox)
-    
+    setCloseBox(!closeBox)    
   }
 
   return (
@@ -98,7 +100,7 @@ export default function Form( {onSubmit} ) {
               </div>
               <div className='lower-buttons'>
                 <button className='find' type='submit'> ENCONTRAR UNIDADE </button>
-                <button className='clear'> LIMPAR </button>
+                <button className='clear' type='reset' onClick={handleReset}> LIMPAR </button>
               </div>
         </form>
       </div>
