@@ -18,11 +18,12 @@ export default function Form( {onSubmit} ) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let cities;
-    if(!closeBox && checkbox != 0){
-      cities = data.locations.filter(filterUnits)
-    } else {
+    let cities = [];
+    if(closeBox){
       cities = data.locations;
+    }
+    if (!closeBox && checkbox != 0){
+      cities = data.locations.filter(filterUnits)
     }
     setResults(cities.length)
     onSubmit(cities);
