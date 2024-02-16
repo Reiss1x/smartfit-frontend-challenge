@@ -1,5 +1,5 @@
 import './App.css'
-import Header from "./components/Header.jsx"
+import SmartLogo from "./_material/images/logo.svg"
 import Form from './components/Form.jsx';
 import Info from './components/Info.jsx';
 import React, { useEffect, useState } from 'react'
@@ -17,7 +17,7 @@ const App = () => {
   return (
     <div >
       <div className='page-header'>
-        <Header />
+        <img src={SmartLogo} alt="Logo" className='smart-logo' />
       </div>
       <div className='page-body'>
         <div className='text-content'>
@@ -30,13 +30,16 @@ const App = () => {
         </p>
         </div>
         <Form onSubmit={handleSubmit}/>
-         {/* && cidades.map(obj => (
-          <Units {...obj}/>
-        )) */}
         <Info/>
-        {cidades.length > 0 && cidades.map(obj => (
+        <div className='units'>       
+          {cidades.length > 0 && cidades.map(obj => (
           <Units data = {obj}/>
-        ))}
+        ))}      
+        </div>
+      </div>
+      <div className='page-footer'>
+        <img src={SmartLogo} alt="Logo" className='smart-logo-footer' />
+        Todos os direitos reservados - 2020
       </div>
     </div>      
       

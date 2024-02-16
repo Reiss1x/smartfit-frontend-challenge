@@ -11,7 +11,7 @@
   padding: 0;
 }
 
-.header {
+.page-header {
   display: flex;
   background-color: black;
   width: 100%;
@@ -115,6 +115,7 @@
   display: flex;
   flex-direction: column;
   background-color: #f5f5f5;
+  margin-bottom: 50px;
 }
 
 .item-group {
@@ -132,22 +133,25 @@
   display: flex;
   justify-content: space-between;
 }
+.units {
+  width: 52.5%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 10%;
+}
 
 .unit-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex: 1 0 25%;
+  margin: 5px;
+  max-width: 30%;
   background-color: #f5f5f5;
-  margin-top: 50px;
-  width: 17.5%;
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 10px 1px rgb(190, 190, 190);
   -moz-box-shadow: 0px 0px 10px 1px rgba(190, 190, 190);
   box-shadow: 0px 0px 10px 1px rgba(190, 190, 190);
-}
-.unit-header {
   padding: 15px;
 }
+
 
 .unit-content {
   border-bottom: 2px solid #dadada;
@@ -163,10 +167,49 @@
   font-weight: bold;
   margin: 0;
 }
+.unit-schedules {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
 .unit-closed {
   color: var(--red);
 }
+.unit-schedules-box{
+  width: 50%;
+}
+.weekdays, .hours {
+  box-sizing: border-box;
+}
+.weekdays {
+  font-size: 20px;
+}
+.unit-icons {
+  display: flex;
+}
+.icons {
+  width: 25%;
+  height: auto;
+}
 
+.page-footer{
+  margin-top: 100px;
+  display: flex;
+  background-color: #333333;
+  width: 100%;
+  height: 180px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  font-family: gotham;
+  font-weight: lighter;
+}
+
+.smart-logo-footer {
+  height: 20%;
+  margin-bottom: 20px;
+}
 h1 {
   margin: 0;
   font-weight: bold;

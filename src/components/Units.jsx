@@ -11,27 +11,38 @@ import ForbFount from '../_material/images/forbidden-fountain.png'
 
 
 export default function Units( {data} ) {
-  return ( 
+  return (
     <div className='unit-container'>
-      <div className='unit-header'>
-        {data.opened ? <p className='unit-open'> Aberto </p> : <p className='unit-closed'> Fechado </p>}
-        <h6>{data.title}</h6>
-        <p dangerouslySetInnerHTML={{ __html: data.content }} className='unit-content'></p>
-      </div>
-      <div className='unit-icons'> 
-        <img src={
-          data.mask === 'required' ? ReqMask : RecMask
-        }></img>
-        <img src={
-          data.towel === 'required' ? ReqTow : RecTow
-        }></img>
-        <img src={
-          data.fountain === 'partial' ? PartFount : ForbFount
-        }></img>
-        <img src={
-          data.locker_room === 'allowed' ? ReqLock : data.locker_room === 'partial' ? PartLock : ForbLock
-        }></img>
-      </div>
+    <div className='unit-header'>
+      {data.opened ? <p className='unit-open'> Aberto </p> :<p className='unit-closed'> Fechado </p>}
+      <h6>{data.title}</h6>
+      <p dangerouslySetInnerHTML={{ __html: data.content }}className='unit-content'></p>
     </div>
+    <div className='unit-icons'> 
+      <img className='icons' src={
+        data.mask === 'required' ? ReqMask : RecMask
+      }></img>
+      <img className='icons' src={
+        data.towel === 'required' ? ReqTow : RecTow
+      }></img>
+      <img className='icons' src={
+        data.fountain === 'partial' ? PartFount : ForbFount
+      }></img>
+      <img className='icons' src={
+        data.locker_room === 'allowed' ? ReqLock : data.locker_room === 'partial' ? PartLock : ForbLock
+      }></img>
+    </div>
+    <div className='unit-schedules'>   
+      {data.hasOwnProperty('schedules') && (
+        data.schedules.map(obj => (
+          <div className='unit-schedules-box'>
+            <h1 className='weekdays'>{obj.weekdays}</h1>
+            <p className='hours'>{obj.hour}</p>
+          </div>
+          
+        ))
+      )}
+    </div>
+  </div> 
   )
 }
