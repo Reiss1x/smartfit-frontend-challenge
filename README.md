@@ -10,6 +10,8 @@
 
 Smart Fit, as it operates in the fitness segment, went through several changes during the pandemic. It was necessary to develop a page to search for closed or open units for consultation and booking. In this test, you will implement the functionalities described below.
 
+<strong>Link to original challenge repository: </strong>https://github.com/bioritmo/front-end-code-challenge-smartsite/tree/master
+
 ### Features
 
 - :white_check_mark: Load units through the JSON file https://test-frontend-developer.s3.amazonaws.com/data/locations.json with GET method.
