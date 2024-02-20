@@ -36,7 +36,7 @@ The application layout was based on the provided materials, including designs fo
 
 `npm i`  - will install all dependencies needed to run the project.
 
-`npm start` - runs the app in the development mode.
+`npm run dev` - runs the app in the development mode.
 
 Open `http://localhost:5173` to view it in the browser.
 
